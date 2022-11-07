@@ -17,7 +17,7 @@
 
             <!-- Divider -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="masterekstra">
                     <i class="fas fa-list-ol"></i>
                     <span>Pilihan Ekstrakulikuler</span></a>
             </li>

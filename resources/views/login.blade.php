@@ -24,7 +24,7 @@
                       <form>
       
                         <div class="d-flex align-items-center mb-3 pb-1">
-                          <span class="h1 fw-bold mb-0">Student Login</span>
+                          <span class="h1 fw-bold mb-0">Login</span>
                         </div>
       
                         <div class="form-outline mb-4">
@@ -40,8 +40,6 @@
                         <div class="pt-1 mb-4">
                           <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
                         </div>
-      
-                        <a class="small text-muted" href="#!">Forgot password?</a>
                         <p class="mb-2 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
                             style="color: #393f81;">Register here</a></p>
                       </form>
