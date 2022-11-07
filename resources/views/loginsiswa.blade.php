@@ -44,8 +44,6 @@
                         <a class="small text-muted" href="#!">Forgot password?</a>
                         <p class="mb-2 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
                             style="color: #393f81;">Register here</a></p>
-                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Login for coach?<a href="loginpelatih"
-                            style="color: #393f81;"> Click here</a></p>
                       </form>
       
                     </div>
