@@ -5,21 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ekstra extends Model
+class ekstra
 {
-    use HasFactory;
-    protected $fillable = [
-        'nama_ekstra',
-        'jadwal',
-        'foto',
-        'id_pelatih'
-        
+    private static $nama_ekstra = [
+        [
+            "nama_ekstra" => "Volley Putra",
+            "slug" => "volley-putra"
+        ],
+        [
+            "nama_ekstra" => "Volley Putri",
+            "slug" => "volley-putri"
+        ]
+       
     ];
-    protected $table = 'ekstra';
-    public function pelatih(){
-        return $this->manyToOne('App\Models\Pelatih', 'id_ekstra');
+    public static function all(){
+        return collect(Self::$nama_ekstra);
     }
-    public function siswa(){
-        return $this->belongsToMany('App\Models\Siswa', 'id_ekstra');
+    public static function find($slug){
+        $ekstra = static::all();
+        return $ekstra->Firstwhere('slug', $slug);
+
     }
 }

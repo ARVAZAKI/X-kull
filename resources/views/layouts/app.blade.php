@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="css/style.css">
 
-    <title>SB Admin 2 - @yield('title') </title>
+    <title>X-kull | @yield('title') </title>
 
     <!-- Custom fonts for this template-->
     <link href={{ asset('template/vendor/fontawesome-free/css/all.min.css') }} rel = 'stylesheet' type="text/css">
@@ -26,11 +27,11 @@
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
-    @include('admin.sidebar')
+    @include('layouts.sidebar')
                <!-- Content Wrapper -->  
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-        @include('admin.topbar')
+        @include('layouts.topbar')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
@@ -40,7 +41,7 @@
                 <!-- /.container-fluid -->
                 
             </div>
-            @include('admin.footer')
+            @include('layouts.footer')
             </div>
         </div>
 </div>

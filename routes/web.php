@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EkstraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
-Route::get('/masterekstra', function () {
-    return view('admin.masterekstra');
-});
+// Route::get('/masterekstra', function () {
+//     return view('admin.masterekstra');
+// });
+Route::get('masterekstra',[EkstraController::class, 'index']);
