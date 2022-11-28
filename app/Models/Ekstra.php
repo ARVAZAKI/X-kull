@@ -9,6 +9,8 @@ class ekstra extends Model
 {
         protected $fillable = [
             'nama_ekstra',
+            'jadwal',
+            'foto',
             'id_pelatih'
         ];
         protected $table = 'Ekstra';
