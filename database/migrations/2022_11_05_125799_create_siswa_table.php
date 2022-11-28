@@ -18,10 +18,7 @@ return new class extends Migration
             $table->string("nisn");
             $table->string("nama");
             $table->string("kelas");
-            $table->bigInteger("id_ekstra")->unsigned();
-            $table->foreign("id_ekstra")->references("id")->on("ekstra")
-            ->onDelete("cascade")
-            ->onUpdate("cascade");
+            $table->bigInteger("id_ekstrasiswa")->unsigned();
             $table->timestamps();
         });
     }

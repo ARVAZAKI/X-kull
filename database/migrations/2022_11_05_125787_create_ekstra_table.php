@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string("jadwal");
             $table->char("foto");
             $table->bigInteger("id_pelatih")->unsigned();
-            $table->foreign("id_pelatih")->references("id")->on("pelatih")
-            ->onDelete("cascade")
-            ->onUpdate("cascade");
             $table->timestamps();
         });
     }
