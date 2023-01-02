@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Xkull - Login Siswa</title>
+    <title>Xkull - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
@@ -20,30 +20,30 @@
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
-      
+
                       <form>
-      
+
                         <div class="d-flex align-items-center mb-3 pb-1">
                           <span class="h1 fw-bold mb-0">Login</span>
                         </div>
-      
+
                         <div class="form-outline mb-4">
                           <input type="email" id="form2Example17" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example17">Username</label>
                         </div>
-      
+
                         <div class="form-outline mb-4">
                           <input type="password" id="form2Example27" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example27">Password</label>
                         </div>
-      
+
                         <div class="pt-1 mb-4">
                           <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
                         </div>
                         <p class="mb-2 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
                             style="color: #393f81;">Register here</a></p>
                       </form>
-      
+
                     </div>
                   </div>
                 </div>

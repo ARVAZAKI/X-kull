@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string("nama_ekstra");
             $table->string("jadwal");
-            $table->char("foto");
             $table->bigInteger("id_pelatih")->unsigned();
             $table->timestamps();
         });

@@ -17,11 +17,16 @@
             </li>
           <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="/masterekstra">
+                <a class="nav-link" href="/ekstrak">
                     <i class="fas fa-list"></i>
-                    <span>Pendaftaran Ekstra</span></a>
+                    <span>Ekstra</span></a>
             </li>
             <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/pelatih">
+                    <i class="fas fa-head-side-cough"></i>
+                    <span>Pelatih</span></a>
+            </li>
 
 <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>

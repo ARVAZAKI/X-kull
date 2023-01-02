@@ -9,9 +9,7 @@ class pelatih extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama',
-        'foto',
-        'id_ekstra'
+        'nama'
     ];
     protected $table = 'pelatih';
     public function ekstra(){

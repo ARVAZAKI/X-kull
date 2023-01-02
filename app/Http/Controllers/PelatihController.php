@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use file;
-use App\Models\Ekstra;
 use App\Models\Pelatih;
+use App\Models\Ekstra;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class EkstraController extends Controller
+class PelatihController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,8 @@ class EkstraController extends Controller
      */
     public function index()
     {
-        // $pelatih = Pelatih::all();
-        $data = Ekstra::all();
-        return view('admin.masterekstra',compact('data'));
+        $pelatih = Pelatih::all();
+        return view('admin.masterpelatih',compact('pelatih'));
     }
 
     /**
@@ -28,7 +25,7 @@ class EkstraController extends Controller
      */
     public function create()
     {
-        return view('admin.createekstra');
+        return view('admin.createpelatih');
     }
 
     /**
@@ -37,17 +34,12 @@ class EkstraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function buatekstra(){
+    public function buatpelatih(){
         $pelatih = Pelatih::all();
-        return view('admin.createekstra', compact('pelatih'));
+        return view('admin.createpelatih', compact('pelatih'));
     }
 
-    public function store(Request $request)
-    {
-
-    }
-
-    public function makeekstra(Request $request){
+    public function makepelatih(Request $request){
         $messages = [
             'required' => ':attribute harus diisi',
             'nama' => ':attribute minimal :min karakter',
@@ -57,17 +49,19 @@ class EkstraController extends Controller
 
         ];
         $this->validate($request,[
-            'nama_ekstra' => 'required',
-            'jadwal' => 'required',
+            'nama' => 'required',
             'foto' => 'mimes:jpg,jpeg,svg,png'
         ],$messages);
 
-        Ekstra::create([
-            'nama_ekstra' => $request->nama_ekstra,
-            'jadwal' => $request->jadwal,
-            'id_pelatih' => $request->id_pelatih
+        Pelatih::create([
+            'nama' => $request->nama,
+            'id_ekstra' => $request->id_ekstra,
         ]);
-        return redirect('/ekstrak');
+        return redirect('/pelatih');
+    }
+    public function store(Request $request)
+    {
+
     }
 
     /**
