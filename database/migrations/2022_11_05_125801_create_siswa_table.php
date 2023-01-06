@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('agenda', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
-            $table->string('agenda');
-            $table->bigInteger("id_ekstra")->unsigned();
-            $table->bigInteger("id_pelatih")->unsigned();
+            $table->string("nisn");
+            $table->string("nama");
+            $table->string("kelas");
+            $table->unsignedBigInteger('ekstrasiswa_id');
+            $table->foreign('ekstrasiswa_id')->references('id')->on('ekstrasiswa')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agenda');
+        Schema::dropIfExists('siswa');
     }
 };

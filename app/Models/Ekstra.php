@@ -13,5 +13,11 @@ class ekstra extends Model
             'id_pelatih'
         ];
         protected $table = 'Ekstra';
+
+
+        public function pelatih()
+        {
+            return $this->belongsTo(pelatih::class,'pelatih_id','id');
+        }
     }
 

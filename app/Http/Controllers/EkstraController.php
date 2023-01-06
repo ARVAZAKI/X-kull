@@ -114,4 +114,12 @@ class EkstraController extends Controller
     {
         //
     }
+
+    public function hapus($id)
+    {
+        $data=Ekstra::find($id)->delete();
+        return redirect('/ekstrak');
+
+
+    }
 }

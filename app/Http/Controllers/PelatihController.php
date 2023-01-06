@@ -108,4 +108,11 @@ class PelatihController extends Controller
     {
         //
     }
+    public function hapus($id)
+    {
+        $data=Pelatih::find($id)->delete();
+        return redirect('/pelatih');
+
+
+    }
 }

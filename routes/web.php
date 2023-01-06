@@ -15,18 +15,22 @@ use App\Http\Controllers\PelatihController;
 |
 */
 
+
 Route::get('/', function () {
     return view('login');
 });
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
-// Route::get('/masterekstra', function () {
-//     return view('admin.masterekstra');
-// });
-Route::get('/ekstrak',[EkstraController::class, 'index'])->name('ekstrak.index');
-Route::get('/pelatih', [PelatihController::class, "index"])->name('pelatih.index');
-Route::get('/ekstrak/create',[EkstraController::class,"buatekstra"])->name('buat.ekstra');
-Route::get('/ekstrak/make',[EkstraController::class,"makeekstra"])->name('make.ekstra');
-Route::get('/pelatih/create',[PelatihController::class,"buatpelatih"])->name('buat.pelatih');
-Route::get('/pelatih/make',[PelatihController::class,"makepelatih"])->name('make.pelatih');
+
+//route masterekstra
+Route::get('/ekstrak',[EkstraController::class, 'index'])->name('ekstrak.index'); //route index
+Route::get('/ekstrak/create',[EkstraController::class,"buatekstra"])->name('buat.ekstra'); //route create
+Route::get('/ekstrak/make',[EkstraController::class,"makeekstra"])->name('make.ekstra'); //route create
+Route::get('/ekstrak/{id}/hapus',[EkstraController::class,"hapus"] )->name('ekstrak.hapus'); //route delete
+
+//route masterpelatih
+Route::get('/pelatih', [PelatihController::class, "index"])->name('pelatih.index'); //route index
+Route::get('/pelatih/create',[PelatihController::class,"buatpelatih"])->name('buat.pelatih'); //route create
+Route::get('/pelatih/make',[PelatihController::class,"makepelatih"])->name('make.pelatih'); //route create
+Route::get('/pelatih/{id}/hapus',[PelatihController::class, "hapus"])->name('pelatih.hapus'); //route hapus

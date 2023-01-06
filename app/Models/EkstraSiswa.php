@@ -10,7 +10,13 @@ class EkstraSiswa extends Model{
         'id_ekstra'
     ];
     protected $table = 'EkstraSiswa';
-    public function siswa(){
-        return $this->hasMany('App\Models\Siswa', 'id_ekstrasiswa');
+    /**
+     * Get the user that owns the EkstraSiswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function ekstra()
+    {
+        return $this->belongsTo(ekstra::class,'ekstra_id','id');
     }
 }
