@@ -15,8 +15,8 @@ class siswa extends Model
         'email'
     ];
     protected $table = 'siswa';
-   public function ekstrasiswa()
-   {
-       return $this->hasMany(ekstrasiswa::class, 'ekstrasiswa_id', 'id');
-   }
+    public function ekstra()
+    {
+        return $this->belongsToMany(ekstra::class, 'ekstrasiswa', 'siswa_id', 'ekstra_id');
+    }
 }

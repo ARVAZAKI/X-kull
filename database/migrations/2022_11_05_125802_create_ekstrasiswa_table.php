@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('ekstrasiswa', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
             $table->unsignedBigInteger('ekstra_id');
             $table->foreign('ekstra_id')->references('id')->on('ekstra')->onDelete('cascade');
             $table->timestamps();

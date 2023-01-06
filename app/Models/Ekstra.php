@@ -19,20 +19,13 @@ class ekstra extends Model
         {
             return $this->belongsTo(pelatih::class, 'pelatih_id', 'id');
         }
-
-        public function ekstrasiswa()
-        {
-            return $this->hasMany(ekstrasiswa::class, 'ekstrasiswa_id', 'id');
-        }
-
-        public function agenda()
+         public function agenda()
         {
             return $this->hasMany(agenda::class, 'foreign_key', 'local_key');
         }
-
-       
-
-
-
+        public function siswa()
+        {
+        return $this->belongsToMany(siswa::class, 'ekstrasiswa', 'ekstra_id', 'siswa_id');
+        }
     }
 

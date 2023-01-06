@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->string("nisn");
             $table->string("nama");
+            $table->string("nisn");
             $table->string("kelas");
-            $table->unsignedBigInteger('ekstrasiswa_id');
-            $table->foreign('ekstrasiswa_id')->references('id')->on('ekstrasiswa')->onDelete('cascade');
             $table->timestamps();
         });
     }
