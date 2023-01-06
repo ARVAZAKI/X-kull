@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->date('tanggal');
             $table->string('agenda');
-            // $table->unsignedBigInteger('ekstra_id');
-            // $table->foreign('ekstra_id')->references('id')->on('ekstra')->onDelete('cascade');
+            $table->unsignedBigInteger('ekstra_id');
+            $table->foreign('ekstra_id')->references('id')->on('ekstra')->onDelete('cascade');
             $table->unsignedBigInteger('pelatih_id');
             $table->foreign('pelatih_id')->references('id')->on('pelatih')->onDelete('cascade');
             $table->timestamps();

@@ -16,11 +16,8 @@ return new class extends Migration
         Schema::create('ekstra', function (Blueprint $table) {
             $table->id();
             $table->string("nama_ekstra");
+            $table->char("foto");
             $table->string("jadwal");
-            $table->unsignedBigInteger('pelatih_id');
-            $table->foreign('pelatih_id')->references('id')->on('pelatih')->onDelete('cascade');
-            $table->unsignedBigInteger('agenda_id');
-            $table->foreign('agenda_id')->references('id')->on('agenda')->onDelete('cascade');
             $table->timestamps();
         });
     }

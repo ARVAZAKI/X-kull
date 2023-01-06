@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('pelatih', function (Blueprint $table) {
             $table->id();
             $table->string("nama");
+            $table->char("foto");
+            $table->unsignedBigInteger('ekstra_id');
+            $table->foreign('ekstra_id')->references('id')->on('ekstra')->onDelete('cascade');
             $table->timestamps();
         });
     }

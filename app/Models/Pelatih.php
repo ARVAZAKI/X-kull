@@ -12,5 +12,14 @@ class pelatih extends Model
         'nama'
     ];
     protected $table = 'pelatih';
-    
+
+    public function ekstra()
+    {
+        return $this->hasMany(ekstra::class, 'ekstra_id', 'id');
+    }
+    public function agenda()
+    {
+        return $this->hasMany(agenda::class, 'pelatih_id', 'id');
+    }
+
 }
