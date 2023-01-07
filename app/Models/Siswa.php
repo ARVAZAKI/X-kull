@@ -9,10 +9,10 @@ class siswa extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nisn',
         'nama',
+        'nisn',
         'jk',
-        'email'
+        'kelas'
     ];
     protected $table = 'siswa';
     public function ekstra()
