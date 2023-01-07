@@ -58,12 +58,13 @@ class EkstraController extends Controller
         ];
         $this->validate($request,[
             'nama_ekstra' => 'required',
-            'jadwal' => 'required',
-            'foto' => 'mimes:jpg,jpeg,svg,png'
+            'jadwal' => 'required'
+            // 'foto' => 'mimes:jpg,jpeg,svg,png'
         ],$messages);
 
         Ekstra::create([
             'nama_ekstra' => $request->nama_ekstra,
+            'foto' => $request->foto,
             'jadwal' => $request->jadwal,
             'id_pelatih' => $request->id_pelatih
         ]);

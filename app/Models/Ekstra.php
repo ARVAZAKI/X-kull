@@ -9,15 +9,15 @@ class ekstra extends Model
 {
         protected $fillable = [
             'nama_ekstra',
-            'jadwal',
-            'id_pelatih'
+            'foto',
+            'jadwal'
         ];
         protected $table = 'Ekstra';
 
 
         public function pelatih()
         {
-            return $this->belongsTo(pelatih::class, 'pelatih_id', 'id');
+            return $this->hasMany(pelatih::class, 'pelatih_id', 'id');
         }
          public function agenda()
         {

@@ -29,17 +29,17 @@
                         <label for="jadwal">jadwal</label>
                         <input type="text" class="form-control" id="jadwal" name="jadwal" value = "{{ old('jadwal')}} ">
                     </div>
-                    {{-- <div class = "form-group">
+                    <div class = "form-group">
                         <label for="foto">foto</label>
                         <input type="file" class="form-control-file" id="foto"
                          name="foto" value = "{{ old('foto')}}">
-                    </div> --}}
-                    <select name="id_pelatih" id="inputGroupSelect01" class="custom-select">
+                    </div>
+                    {{-- <select name="pelatih_id" id="inputGroupSelect01" class="custom-select">
                         <option selected>nama pelatih</option>
                         @foreach ($pelatih as $coach)
                         <option value="{{$coach->id}}">{{$coach->nama}}</option>
                         @endforeach
-                    </select>
+                    </select> --}}
                     <div class="form-group pt-3">
                         <input type ="submit" class="btn btn-success" value="Simpan">
                         <a href="{{ route('ekstrak.index') }}" class="btn btn-danger">Batal</a>

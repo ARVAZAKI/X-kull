@@ -9,13 +9,15 @@ class pelatih extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama'
+        'nama',
+        'foto',
+        'ekstra_id'
     ];
     protected $table = 'pelatih';
 
     public function ekstra()
     {
-        return $this->hasMany(ekstra::class, 'ekstra_id', 'id');
+        return $this->belongsTo(ekstra::class, 'ekstra_id', 'id');
     }
     public function agenda()
     {

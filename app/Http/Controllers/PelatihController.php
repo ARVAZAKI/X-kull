@@ -36,7 +36,8 @@ class PelatihController extends Controller
      */
     public function buatpelatih(){
         $pelatih = Pelatih::all();
-        return view('admin.createpelatih', compact('pelatih'));
+        $ekstra = Ekstra::all();
+        return view('admin.createpelatih', compact('pelatih','ekstra'));
     }
 
     public function makepelatih(Request $request){
@@ -49,13 +50,13 @@ class PelatihController extends Controller
 
         ];
         $this->validate($request,[
-            'nama' => 'required',
-            'foto' => 'mimes:jpg,jpeg,svg,png'
+            'nama' => 'required'
         ],$messages);
 
         Pelatih::create([
             'nama' => $request->nama,
-            'id_ekstra' => $request->id_ekstra,
+            'foto' => $request->foto,
+            'ekstra_id' => $request->ekstra_id,
         ]);
         return redirect('/pelatih');
     }
