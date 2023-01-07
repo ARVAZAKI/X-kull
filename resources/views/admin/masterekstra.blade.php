@@ -18,13 +18,11 @@
                             <th scope="col">No.</th>
                             <th scope="col">Nama ekstrakulikuler</th>
                             <th scope="col">Opsi</th>
-
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($data as $item)
                         <tr>
-
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $item->nama_ekstra}}</td>
                             <td><a href="" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
@@ -33,7 +31,6 @@
                             </td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
