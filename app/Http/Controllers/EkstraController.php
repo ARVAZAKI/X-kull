@@ -17,7 +17,7 @@ class EkstraController extends Controller
     public function index()
     {
         // $pelatih = Pelatih::all();
-        $data = Ekstra::all();
+        $data = Ekstra::with('pelatih')->get();
         return view('admin.masterekstra',compact('data'));
     }
 

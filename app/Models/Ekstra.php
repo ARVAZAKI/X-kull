@@ -17,7 +17,7 @@ class ekstra extends Model
 
         public function pelatih()
         {
-            return $this->hasMany(pelatih::class, 'pelatih_id', 'id');
+            return $this->hasMany(pelatih::class);
         }
          public function agenda()
         {

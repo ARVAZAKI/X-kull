@@ -16,7 +16,9 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Ekstra</th>
                             <th scope="col">Opsi</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +26,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $item->nama}}</td>
+                            <td>{{ $item->ekstra['nama_ekstra']}}</td>
                             <td><a href="" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
                                 <a href="{{ route("pelatih.hapus", $item->id) }}"
                                     class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
