@@ -4,7 +4,7 @@
 @section('content')
 <link rel="stylesheet" href="css/style.css">
 
-<a class= "btn btn-success" href="{{ route('buat.ekstra') }}">Tambah ekstra</a>
+<a class= "btn btn-success" href="{{ route('ekstrak.create') }}">Tambah ekstra</a>
 <div class="row mt-3">
     <div class = "col-lg 12">
         <div class = "card shadow mb-4">

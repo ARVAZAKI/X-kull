@@ -26,7 +26,8 @@ class PelatihController extends Controller
      */
     public function create()
     {
-        return view('admin.createpelatih');
+        $ekstra = Ekstra::all();
+        return view('admin.createpelatih',compact('ekstra'));
     }
 
     /**
@@ -35,13 +36,11 @@ class PelatihController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function buatpelatih(){
-        $pelatih = Pelatih::all();
-        $ekstra = Ekstra::all();
-        return view('admin.createpelatih', compact('pelatih','ekstra'));
-    }
 
-    public function makepelatih(Request $request){
+
+
+    public function store(Request $request)
+    {
         $messages = [
             'required' => ':attribute harus diisi',
             'nama' => ':attribute minimal :min karakter',
@@ -53,17 +52,16 @@ class PelatihController extends Controller
         $this->validate($request,[
             'nama' => 'required'
         ],$messages);
-
+        $file = $request->file('foto');
+        $foto = time() . '_' . $file->getClientOriginalName();
+        $tujuan_upload = './template/img/';
+        $file->move ($tujuan_upload,$foto);
         Pelatih::create([
             'nama' => $request->nama,
-            'foto' => $request->foto,
+            'foto' => $foto,
             'ekstra_id' => $request->ekstra_id,
         ]);
         return redirect('/pelatih');
-    }
-    public function store(Request $request)
-    {
-
     }
 
     /**

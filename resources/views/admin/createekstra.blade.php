@@ -19,7 +19,7 @@
             </div>
             @endif
 
-                <form method ="GET" enctype ="multipart/form-data" action="{{ route('make.ekstra') }}">
+                <form method ="POST" enctype ="multipart/form-data" action="{{ route('ekstrak.store') }}">
                     @csrf
                     <div class = "form-group">
                         <label for="nama_ekstra">nama ekstra</label>
@@ -31,7 +31,7 @@
                     </div>
                     <div class = "form-group">
                         <label for="foto">foto</label>
-                        <input type="file" class="form-control-file" id="foto"
+                        <input type="file" required="required" class="form-control-file" id="foto"
                          name="foto" value = "{{ old('foto')}}">
                     </div>
                     {{-- <select name="pelatih_id" id="inputGroupSelect01" class="custom-select">

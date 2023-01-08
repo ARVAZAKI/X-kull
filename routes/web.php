@@ -24,14 +24,12 @@ Route::get('/dashboard', function () {
 });
 
 //route masterekstra
-Route::get('/ekstrak',[EkstraController::class, 'index'])->name('ekstrak.index'); //route index
-Route::get('/ekstrak/create',[EkstraController::class,"buatekstra"])->name('buat.ekstra'); //route create
-Route::get('/ekstrak/make',[EkstraController::class,"makeekstra"])->name('make.ekstra'); //route create
+route::resource('/ekstrak', EkstraController::class);
 Route::get('/ekstrak/{id}',[EkstraController::class,"show"]); //route show
 Route::get('/ekstrak/{id}/hapus',[EkstraController::class,"hapus"] )->name('ekstrak.hapus'); //route delete
 
+
 //route masterpelatih
-Route::get('/pelatih', [PelatihController::class, "index"])->name('pelatih.index'); //route index
-Route::get('/pelatih/create',[PelatihController::class,"buatpelatih"])->name('buat.pelatih'); //route create
-Route::get('/pelatih/make',[PelatihController::class,"makepelatih"])->name('make.pelatih'); //route create
+route::resource('/pelatih', PelatihController::class);
 Route::get('/pelatih/{id}/hapus',[PelatihController::class, "hapus"])->name('pelatih.hapus'); //route hapus
+

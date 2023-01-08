@@ -2,7 +2,7 @@
 @section('title','pelatih')
 @section('content')
 
-<a class= "btn btn-success" href="{{ route('buat.pelatih') }}">Tambah Pelatih</a>
+<a class= "btn btn-success" href="{{ route('pelatih.create') }}">Tambah Pelatih</a>
 <link rel="stylesheet" href="css/style.css">
 <div class="row mt-3">
     <div class = "col-lg 12">

@@ -18,7 +18,7 @@
             </div>
             @endif
 
-                <form method ="GET" enctype ="multipart/form-data" action="{{route('make.pelatih')}}">
+                <form method ="POST" enctype ="multipart/form-data" action="{{route('pelatih.store')}}">
                     @csrf
                     <div class = "form-group">
                         <label for="nama">nama</label>
