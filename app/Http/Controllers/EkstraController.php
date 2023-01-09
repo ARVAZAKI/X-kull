@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use file;
+use App\Models\Agenda;
 use App\Models\Ekstra;
 use App\Models\Pelatih;
 use Illuminate\Http\Request;
@@ -105,8 +106,10 @@ class EkstraController extends Controller
      */
     public function show($id)
     {
+        // $data = Ekstra::all();
+        $agenda = Agenda::all();
         $data = Ekstra::with(['pelatih'])->findOrFail($id);
-        return view('admin.showekstra',compact('data'));
+        return view('admin.showekstra',compact('data','agenda'));
     }
 
     /**

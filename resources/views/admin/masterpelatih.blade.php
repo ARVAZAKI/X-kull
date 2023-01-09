@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','pelatih')
+@section('title','Daftar Pelatih')
 @section('content')
 
 <a class= "btn btn-success" href="{{ route('pelatih.create') }}">Tambah Pelatih</a>

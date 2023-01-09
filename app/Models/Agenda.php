@@ -17,12 +17,12 @@ class Agenda extends Model
     protected $table = 'agenda';
     public function ekstra()
     {
-        return $this->belongsTo(ekstra::class, 'ekstra_id', 'id');
+        return $this->belongsTo(ekstra::class);
     }
 
     public function pelatih()
     {
-        return $this->belongsTo(pelatih::class, 'pelatih_id', 'id');
+        return $this->belongsTo(pelatih::class);
     }
 
 }

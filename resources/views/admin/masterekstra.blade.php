@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Pendaftaran Ekstra')
+@section('title','Daftar Ekstra')
 @section('content-title')
 @section('content')
 <link rel="stylesheet" href="css/style.css">

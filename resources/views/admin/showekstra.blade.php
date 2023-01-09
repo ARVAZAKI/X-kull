@@ -7,9 +7,11 @@
     <div class="col-lg-4">
         <div class="card shadow mb-4">
             <div class="card-body text-center">
+
                 <img src="{{ asset('./template/img/' .$data->foto) }}" width="250" class="img-thumbnail">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-left">nama ekstra : {{ $data->nama_ekstra }}</li>
+
                     @foreach ($data->pelatih as $item)
                     <p class = text-left >Pelatih :</p>
                     <img src="{{ asset('./template/img/' .$item->foto) }}" width="100" class="rounded-circle img-thumbnail">
@@ -56,7 +58,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-check-square"></i> Agenda</h6>
             </div>
             <div class="card-body">
-            @foreach($data->agenda as $ag)
+            @foreach($agenda as $ag)
             <h6>tanggal : {{ $ag->tanggal }}</h6>
             <h6>agenda : {{ $ag->agenda }}</h6>
             @endforeach
