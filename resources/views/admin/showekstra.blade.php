@@ -10,12 +10,11 @@
 
                 <img src="{{ asset('./template/img/' .$data->foto) }}" width="250" class="img-thumbnail">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-left">nama ekstra : {{ $data->nama_ekstra }}</li>
-
-                    @foreach ($data->pelatih as $item)
+                    <li class="list-group-item text-center">{{ $data->nama_ekstra }}</li>
                     <p class = text-left >Pelatih :</p>
-                    <img src="{{ asset('./template/img/' .$item->foto) }}" width="100" class="rounded-circle img-thumbnail">
-                    <li class="list-group-item text-left">nama pelatih: {{ $item->nama }}</li>
+                    @foreach ($data->pelatih as $item)
+                    {{-- <img src="{{ asset('./template/img/' .$item->foto) }}" width="100" class="rounded-circle img-thumbnail"> --}}
+                    <li class="text-left list-unstyled">-{{ $item->nama }}</li>
                     @endforeach
                 </ul>
             </div>
