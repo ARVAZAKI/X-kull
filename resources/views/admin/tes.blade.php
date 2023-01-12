@@ -6,7 +6,6 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Edit Item</div>
-
                 <div class="card-body">
                     <form action="" class="">
                         <div class="form-group mb-1">

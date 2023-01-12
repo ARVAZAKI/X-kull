@@ -73,8 +73,9 @@ class PelatihController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $data = Pelatih::with(['ekstra'])->findOrFail($id);
+        return view('admin.showpelatih', compact('data'));
+        }
 
     /**
      * Show the form for editing the specified resource.

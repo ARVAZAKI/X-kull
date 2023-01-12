@@ -71,33 +71,6 @@ class EkstraController extends Controller
         return redirect('/ekstrak');
     }
 
-    public function makeekstra(Request $request){
-        // $messages = [
-        //     'required' => ':attribute harus diisi',
-        //     'nama' => ':attribute minimal :min karakter',
-        //     'max' => ':attribute max :max karakter',
-        //     'numeric' => ':attribute harus angka',
-        //     'mimes' => 'file :attribute harus bertipe jpg,jpeg,svg,png'
-
-        // ];
-        // $this->validate($request,[
-        //     'nama_ekstra' => 'required',
-        //     'jadwal' => 'required',
-        //     'foto' => 'mimes:jpg,jpeg,svg,png'
-        // ],$messages);
-        // $file = $request->file('foto');
-        // $foto = time() . '_' . $file->getClientOriginalName();
-        // $tujuan_upload = './template/img/';
-        // $file->move ($tujuan_upload,$foto);
-
-        // Ekstra::create([
-        //     'nama_ekstra' => $request->nama_ekstra,
-        //     'jadwal' => $request->jadwal,
-        //     'foto' => $foto
-        // ]);
-        // return redirect('/ekstrak');
-    }
-
     /**
      * Display the specified resource.
      *

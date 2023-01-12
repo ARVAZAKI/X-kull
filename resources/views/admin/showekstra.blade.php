@@ -1,5 +1,5 @@
 @extends('layouts.app2')
-@section('title','show siswa')
+@section('title','Detail ekstra')
 @section('content-title',)
 @section('content')
 
@@ -7,23 +7,21 @@
 
 
 <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-6">
         <div class="card shadow mb-4">
             <div class="card-body text-center">
-
                 <img src="{{ asset('./template/img/' .$data->foto) }}" width="250" class="img-thumbnail">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-center">{{ $data->nama_ekstra }}</li>
                     <p class = text-left >Pelatih :</p>
                     @foreach ($data->pelatih as $item)
-                    {{-- <img src="{{ asset('./template/img/' .$item->foto) }}" width="100" class="rounded-circle img-thumbnail"> --}}
                     <li class="text-left list-unstyled">-{{ $item->nama }}</li>
                     @endforeach
                 </ul>
             </div>
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-6">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-users"></i> Daftar Siswa</h6>
@@ -84,19 +82,8 @@
             <p>{{ $data->jadwal }}</p>
             </div>
         </div>
-        {{-- <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-check-square"></i> Agenda</h6>
-            </div>
-            <div class="card-body">
-            @foreach($agenda as $ag)
-            <h6>tanggal : {{ $ag->tanggal }}</h6>
-            <h6>agenda : {{ $ag->agenda }}</h6>
-            @endforeach
-            </div>
-        </div> --}}
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-3">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-check-square"></i> Agenda</h6>
