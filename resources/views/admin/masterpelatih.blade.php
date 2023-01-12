@@ -2,23 +2,23 @@
 @section('title','Daftar Pelatih')
 @section('content')
 
-<a class= "btn btn-success" href="{{ route('pelatih.create') }}">Tambah Pelatih</a>
 <link rel="stylesheet" href="css/style.css">
+<div class="container">
+    {{-- <a class= "btn btn-success" href="{{ route('pelatih.create') }}">Tambah Pelatih<a> --}}
 <div class="row mt-3">
-    <div class = "col-lg 12">
+    <div class = "col-lg-8">
         <div class = "card shadow mb-4">
             <div class = "card-header py-3 bg-cstm">
-                <h6 class="m-0 font-weight-bold text-light">Daftar Pelatih</h6>
+                <h6 class="m-0 font-weight-bold text-light text-center">Daftar Pelatih</h6>
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table table-responsive-lg">
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Ekstra</th>
                             <th scope="col">Opsi</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -32,12 +32,56 @@
                                     class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <div class="col-lg-4">
+        <div class="card-shadow mb-4 bg-white">
+            <div class = "card-header py-3 bg-cstm">
+                <h6 class="m-0 font-weight-bold text-light text-center">Create pelatih</h6>
+            </div>
+            <div class="card-body">
+                @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors -> all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+                <form method ="POST" enctype ="multipart/form-data" action="{{route('pelatih.store')}}">
+                    @csrf
+                    <div class = "form-group">
+                        <label for="nama">nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" value = "{{ old('nama')}} ">
+                    </div>
+                    <div class="form-group">
+                        <label for="ekstra">Pilih Ekstra</label>
+                        <select name="ekstra_id" id="inputGroupSelect01" class="custom-select ">
+                            <option selected>nama ekstra</option>
+                            @foreach ($ekstra as $ekskul)
+                            <option value="{{$ekskul->id}}">{{$ekskul->nama_ekstra}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class = "form-group">
+                        <label for="foto">foto</label>
+                        <input type="file" class="form-control-file" id="foto"
+                         name="foto" value = "{{ old('foto')}}">
+                    </div>
+
+                    <div class="form-group pt-3">
+                        <input type ="submit" class="btn btn-success" value="Simpan">
+                        <a href="{{ route('pelatih.index') }}" class="btn btn-danger">Batal</a>
+                    </div>
+
+                </form>
+        </div>
+    </div>
+</div>
 </div>
 
 @endsection

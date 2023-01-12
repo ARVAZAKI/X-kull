@@ -17,7 +17,6 @@
                 </ul>
             </div>
             @endif
-
                 <form method ="POST" enctype ="multipart/form-data" action="{{route('pelatih.store')}}">
                     @csrf
                     <div class = "form-group">
@@ -29,7 +28,7 @@
                         <input type="file" class="form-control-file" id="foto"
                          name="foto" value = "{{ old('foto')}}">
                     </div>
-                     <select name="ekstra_id" id="inputGroupSelect01" class="custom-select">
+                     <select name="ekstra_id" id="inputGroupSelect01" class="custom-select ">
                         <option selected>nama ekstra</option>
                         @foreach ($ekstra as $ekskul)
                         <option value="{{$ekskul->id}}">{{$ekskul->nama_ekstra}}</option>

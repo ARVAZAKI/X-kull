@@ -16,6 +16,9 @@ use App\Http\Controllers\PelatihController;
 */
 
 
+Route::get('/tes', function () {
+    return view('admin.tes');
+});
 Route::get('/', function () {
     return view('login');
 });

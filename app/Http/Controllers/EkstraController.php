@@ -107,9 +107,8 @@ class EkstraController extends Controller
     public function show($id)
     {
         // $data = Ekstra::all();
-        $agenda = Agenda::all();
-        $data = Ekstra::with(['pelatih'])->findOrFail($id);
-        return view('admin.showekstra',compact('data','agenda'));
+        $data = Ekstra::with(['pelatih','agenda'])->findOrFail($id);
+        return view('admin.showekstra',compact('data'));
     }
 
     /**

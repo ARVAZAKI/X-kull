@@ -21,7 +21,7 @@ class ekstra extends Model
         }
          public function agenda()
         {
-            return $this->hasMany(agenda::class, 'foreign_key', 'local_key');
+            return $this->hasMany(agenda::class, 'ekstra_id', 'id');
         }
         public function siswa()
         {

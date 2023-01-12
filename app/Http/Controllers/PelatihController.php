@@ -15,8 +15,9 @@ class PelatihController extends Controller
     public function index()
     {
         // $pelatih = Pelatih::all();
+        $ekstra = Ekstra::all();
         $pelatih = Pelatih::with('ekstra')->get();
-        return view('admin.masterpelatih',compact('pelatih'));
+        return view('admin.masterpelatih',compact('pelatih','ekstra'));
     }
 
     /**
