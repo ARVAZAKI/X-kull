@@ -17,7 +17,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Ekstra</th>
+                            {{-- <th scope="col">Ekstra</th> --}}
                             <th scope="col">Opsi</th>
                         </tr>
                     </thead>
@@ -26,7 +26,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $item->nama}}</td>
-                            <td>{{ $item->ekstra['nama_ekstra']}}</td>
+                            {{-- <td>{{ $item->ekstra['nama_ekstra']}}</td> --}}
                             <td><a href="pelatih/{{ $item->id }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
                                 <a href="{{ route("pelatih.hapus", $item->id) }}"
                                     class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
@@ -40,7 +40,7 @@
     <div class="col-lg-4">
         <div class="card-shadow mb-4 bg-white">
             <div class = "card-header py-3 bg-cstm">
-                <h6 class="m-0 font-weight-bold text-light text-center">Create pelatih</h6>
+                <h6 class="m-0 font-weight-bold text-light text-center">Tambah pelatih</h6>
             </div>
             <div class="card-body">
                 @if(count($errors) > 0)
@@ -60,8 +60,8 @@
                     </div>
                     <div class="form-group">
                         <label for="ekstra">Pilih Ekstra</label>
-                        <select name="ekstra_id" id="inputGroupSelect01" class="custom-select ">
-                            <option selected>nama ekstra</option>
+                        <select name="ekstra_id" id="inputGroupSelect01" class="custom-select" required>
+                            <option value="">nama ekstra</option>
                             @foreach ($ekstra as $ekskul)
                             <option value="{{$ekskul->id}}">{{$ekskul->nama_ekstra}}</option>
                             @endforeach

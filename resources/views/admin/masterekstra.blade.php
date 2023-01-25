@@ -10,7 +10,7 @@
     <div class = "col-lg-8">
         <div class = "card shadow mb-4">
             <div class = "card-header py-3 bg-cstm">
-                <h6 class="m-0 font-weight-bold text-light text-center">Daftar ekstra</h6>
+                <h6 class="m-0 font-weight-bold text-light text-center">Daftar Ekstra</h6>
             </div>
             <div class="card-body">
                 <table class="table table-responsive-sm">
@@ -18,7 +18,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Nama ekstrakulikuler</th>
-                            <th scope="col">Pelatih</th>
+                            {{-- <th scope="col">Pelatih</th> --}}
                             <th scope="col">Opsi</th>
                         </tr>
                     </thead>
@@ -27,11 +27,11 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $item->nama_ekstra}}</td>
-                            <td>
+                            {{-- <td>
                                 @foreach($item->pelatih as $pelatih)
                                 - {{ $pelatih->nama }} <br>
                                 @endforeach
-                            </td>
+                            </td> --}}
                             <td><a href="ekstrak/{{ $item->id }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
                                 <a href="{{ route("ekstrak.hapus", $item->id) }}"
                                     class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
@@ -46,7 +46,7 @@
     <div class = "col-lg-4">
         <div class = "card shadow mb-4">
             <div class = "card header py-3 bg-cstm">
-                <h6 class="m-0 font-weight-bold text-light text-center">Create Ekstra</h6>
+                <h6 class="m-0 font-weight-bold text-light text-center">Tambah Ekstra</h6>
             </div>
 
             <div class="card-body">
@@ -72,15 +72,9 @@
                     </div>
                     <div class = "form-group">
                         <label for="foto">foto</label>
-                        <input type="file" required="required" class="form-control-file" id="foto"
+                        <input type="file" class="form-control-file" id="foto"
                          name="foto" value = "{{ old('foto')}}">
                     </div>
-                    {{-- <select name="pelatih_id" id="inputGroupSelect01" class="custom-select">
-                        <option selected>nama pelatih</option>
-                        @foreach ($pelatih as $coach)
-                        <option value="{{$coach->id}}">{{$coach->nama}}</option>
-                        @endforeach
-                    </select> --}}
                     <div class="form-group pt-3">
                         <input type ="submit" class="btn btn-success" value="Simpan">
                         <a href="{{ route('ekstrak.index') }}" class="btn btn-danger">Batal</a>

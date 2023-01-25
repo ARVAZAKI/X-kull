@@ -51,7 +51,9 @@ class PelatihController extends Controller
 
         ];
         $this->validate($request,[
-            'nama' => 'required'
+            'nama' => 'required',
+            'foto' => 'required',
+            'ekstra_id' =>'required'
         ],$messages);
         $file = $request->file('foto');
         $foto = time() . '_' . $file->getClientOriginalName();

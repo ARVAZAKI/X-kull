@@ -56,7 +56,7 @@ class EkstraController extends Controller
         $this->validate($request,[
             'nama_ekstra' => 'required',
             'jadwal' => 'required',
-            'foto' => 'mimes:jpg,jpeg,svg,png'
+            'foto' => 'required|mimes:jpg,jpeg,svg,png'
         ],$messages);
         $file = $request->file('foto');
         $foto = time() . '_' . $file->getClientOriginalName();

@@ -15,7 +15,7 @@
                     <li class="list-group-item text-center">{{ $data->nama_ekstra }}</li>
                     <p class = text-left >Pelatih :</p>
                     @foreach ($data->pelatih as $item)
-                    <li class="text-left list-unstyled">-{{ $item->nama }}</li>
+                    <li class="list-unstyled text-left">-{{ $item->nama }}</li>
                     @endforeach
                 </ul>
             </div>
