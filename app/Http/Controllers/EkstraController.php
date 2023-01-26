@@ -122,7 +122,12 @@ class EkstraController extends Controller
     {
         $data=Ekstra::find($id)->delete();
         return redirect('/ekstrak');
-
-
+    }
+    public function ekstrasiswa(){
+        $data = Ekstra::with('pelatih')->get();
+        return view('siswa.masterekstra',compact('data'));
+    }
+    public function showekstrasiswa(){
+        return view('siswa.dashboard');
     }
 }

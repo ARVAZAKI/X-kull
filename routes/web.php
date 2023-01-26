@@ -30,9 +30,9 @@ Route::get('/dashboard', function () {
 route::resource('/ekstrak', EkstraController::class);
 Route::get('/ekstrak/{id}',[EkstraController::class,"show"]); //route show
 Route::get('/ekstrak/{id}/hapus',[EkstraController::class,"hapus"] )->name('ekstrak.hapus'); //route delete
-
-
 //route masterpelatih
 route::resource('/pelatih', PelatihController::class);
 Route::get('/pelatih/{id}/hapus',[PelatihController::class, "hapus"])->name('pelatih.hapus'); //route hapus
-
+//
+route::get('/ekstrasiswa', [EkstraController::class, "ekstrasiswa"])->name('ekstra.siswa');
+route::get('/dashboardsiswa',[EkstraController::class, "showekstrasiswa"]);
