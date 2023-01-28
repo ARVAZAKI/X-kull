@@ -33,7 +33,7 @@
                             </td> --}}
                             <td>
                                 {{-- <a href="ekstrak/{{ $item->id }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a> --}}
-                                <a href="" class="btn btn-success">Lihat</a>
+                                <a href="" class="btn btn-primary">Lihat</a>
                             </td>
                         </tr>
 
