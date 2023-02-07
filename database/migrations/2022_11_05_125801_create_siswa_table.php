@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("nama");
             $table->string("nisn");
-            $table->string("jk");
+            $table->enum('jk',[
+                'laki-laki',
+                'perempuan'
+            ]);
             $table->string("kelas");
             $table->timestamps();
         });

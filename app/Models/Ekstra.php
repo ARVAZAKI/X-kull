@@ -25,7 +25,7 @@ class ekstra extends Model
         }
         public function siswa()
         {
-        return $this->belongsToMany(siswa::class, 'ekstrasiswa', 'ekstra_id', 'siswa_id');
+        return $this->belongsToMany(user::class, 'ekstrasiswa', 'ekstra_id', 'users_id');
         }
     }
 

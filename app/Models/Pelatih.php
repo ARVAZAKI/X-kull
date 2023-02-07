@@ -24,4 +24,9 @@ class pelatih extends Model
         return $this->hasMany(agenda::class, 'pelatih_id', 'id');
     }
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'pelatih_id', 'id');
+    }
+
 }

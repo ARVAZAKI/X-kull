@@ -5,6 +5,7 @@ use file;
 use App\Models\Agenda;
 use App\Models\Ekstra;
 use App\Models\Pelatih;
+use App\Models\EkstraSiswa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -79,8 +80,7 @@ class EkstraController extends Controller
      */
     public function show($id)
     {
-        // $data = Ekstra::all();
-        $data = Ekstra::with(['pelatih','agenda'])->findOrFail($id);
+        $data = Ekstra::with(['pelatih','agenda','siswa'])->findOrFail($id);
         return view('admin.showekstra',compact('data'));
     }
 
@@ -122,6 +122,11 @@ class EkstraController extends Controller
     {
         $data=Ekstra::find($id)->delete();
         return redirect('/ekstrak');
+    }
+    public function hapussiswa($id)
+    {
+        $data=Ekstrasiswa::find($id)->delete();
+        return redirect('admin.showekstra');
     }
     public function ekstrasiswa(){
         $data = Ekstra::with('pelatih')->get();

@@ -30,42 +30,19 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Jenis kelamin</th>
-                        {{-- <th scope="col">Kelas</th> --}}
                         <th scope="col">Opsi</th>
                       </tr>
                     </thead>
                     <tbody>
+                        @foreach($data->siswa as $siswa)
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Laki laki</td>
-                        {{-- <td>12 TKJ 1</td> --}}
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $siswa->name }}</td>
                         <td>
-                            <a href="" class="btn btn-primary">Detail</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                            <a href="" class="btn btn-danger">Kick</a>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Laki laki</td>
-                        {{-- <td>11 RPL 2</td> --}}
-                        <td>
-                            <a href="" class="btn btn-primary">Detail</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>Laki laki</td>
-                        {{-- <td>10 DKV 2</td> --}}
-                        <td>
-                            <a href="" class="btn btn-primary">Detail</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
             </div>

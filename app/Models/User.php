@@ -21,7 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'pelatih_id',
+        'siswa_id'
     ];
 
     /**
@@ -33,7 +35,24 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    // public function setPasswordAttribute($password)
+    // {
+    //     $this->attributes['password'] = bcrypt($password);
+    // }
 
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id', 'id');
+    }
+    public function pelatih()
+    {
+        return $this->belongsTo(Pelatih::class, 'pelatih_id', 'id');
+    }
+    public function ekstra()
+    {
+        return $this->belongsToMany(ekstra::class, 'ekstrasiswa', 'users_id', 'ekstra_id');
+    }
     /**
      * The attributes that should be cast.
      *

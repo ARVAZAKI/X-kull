@@ -116,7 +116,5 @@ class PelatihController extends Controller
     {
         $data=Pelatih::find($id)->delete();
         return redirect('/pelatih');
-
-
     }
 }

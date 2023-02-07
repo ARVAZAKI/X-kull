@@ -22,6 +22,10 @@ return new class extends Migration
                 'pelatih'
             ]);
             $table->string('password');
+            $table->unsignedBigInteger('siswa_id')->nullable();
+            $table->foreign('siswa_id')->references('id')->on('siswa');
+            $table->unsignedBigInteger('pelatih_id')->nullable();
+            $table->foreign('pelatih_id')->references('id')->on('pelatih');
             $table->rememberToken();
             $table->timestamps();
         });

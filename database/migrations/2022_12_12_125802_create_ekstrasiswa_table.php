@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ekstrasiswa', function (Blueprint $table) {
-            $table->unsignedBigInteger('siswa_id');
-            $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
+            $table->id();
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('ekstra_id');
             $table->foreign('ekstra_id')->references('id')->on('ekstra')->onDelete('cascade');
         });
