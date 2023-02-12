@@ -69,7 +69,7 @@ class EkstraController extends Controller
             'jadwal' => $request->jadwal,
             'foto' => $foto
         ]);
-        return redirect('/ekstrak');
+        return redirect('/ekstrak')->with('status', 'Berhasil menambah ekstra');
     }
 
     /**
@@ -121,16 +121,12 @@ class EkstraController extends Controller
     public function hapus($id)
     {
         $data=Ekstra::find($id)->delete();
-        return redirect('/ekstrak');
+        return redirect('/ekstrak')->with('status', 'Berhasil menghapus ekstra');
     }
-    public function hapussiswa($id)
+    public function kick($id)
     {
-        $data=Ekstrasiswa::find($id)->delete();
-        return redirect('admin.showekstra');
-    }
-    public function ekstrasiswa(){
-        $data = Ekstra::with('pelatih')->get();
-        return view('siswa.masterekstra',compact('data'));
+        $data=EkstraSiswa::find($id)->delete();
+        return view('admin.showekstra',compact('data'));
     }
     public function showekstrasiswa(){
         return view('siswa.dashboard');

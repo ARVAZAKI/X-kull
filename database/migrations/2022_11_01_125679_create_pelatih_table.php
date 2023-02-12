@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string("nama");
             $table->char("foto");
-            $table->unsignedBigInteger('ekstra_id');
-            $table->foreign('ekstra_id')->references('id')->on('ekstra')->onDelete('cascade');
             $table->timestamps();
         });
     }

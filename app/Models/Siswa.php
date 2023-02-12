@@ -20,5 +20,9 @@ class siswa extends Model
    {
        return $this->hasOne(User::class, 'siswa_id', 'id');
    }
-   
+   public function ekstra()
+    {
+        return $this->belongsToMany(ekstra::class, 'ekstrasiswa', 'siswa_id', 'ekstra_id');
+    }
+
 }

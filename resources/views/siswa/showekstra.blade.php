@@ -2,10 +2,10 @@
 @section('title','Detail ekstra')
 @section('content-title',)
 @section('content')
-
 <div class="container">
+    <a href="/dashboardsiswa" class="btn btn-success mb-3 btn-lg">back</a>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-body text-center">
                 <img src="{{ asset('./template/img/' .$data->foto) }}" width="250" class="img-thumbnail">
@@ -19,36 +19,8 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-users"></i> Daftar Siswa</h6>
-            </div>
-            <div class="card-body">
-                <table class="table table-responsive-sm">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jenis kelamin</th>
-                        <th scope="col">Kelas</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data->siswa as $siswa)
-                      <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $siswa->nama }}</td>
-                        <td>{{ $siswa->jk }}</td>
-                        <td>{{ $siswa->kelas }}</td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
+
+    <div class="col-lg-5">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-bars"></i> Jadwal Ekstra</h6>
@@ -58,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-7">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-check-square"></i> Agenda</h6>

@@ -15,10 +15,10 @@ class pelatih extends Model
     ];
     protected $table = 'pelatih';
 
-    public function ekstra()
-    {
-        return $this->belongsTo(ekstra::class, 'ekstra_id', 'id');
-    }
+    // public function ekstra()
+    // {
+    //     return $this->belongsTo(ekstra::class, 'ekstra_id', 'id');
+    // }
     public function agenda()
     {
         return $this->hasMany(agenda::class, 'pelatih_id', 'id');
@@ -27,6 +27,11 @@ class pelatih extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'pelatih_id', 'id');
+    }
+
+    public function ekstra()
+    {
+        return $this->belongsToMany(Ekstra::class, 'ekstrapelatih', 'pelatih_id', 'ekstra_id');
     }
 
 }

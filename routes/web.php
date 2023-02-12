@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EkstraController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PelatihController;
+use App\Http\Controllers\PelatihControllerNew;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,13 +46,21 @@ Route::group(['middleware' =>['auth','CekRole:admin']],function(){
     route::get('/akunpelatih', [UserController::class, "pelatihindex"]);
     Route::post('/akunpelatih', [UserController::class, "createpelatih"])->name('akunpelatih.create');
     Route::get('/akunpelatih/{id}/hapus',[UserController::class,"hapuspelatih"] )->name('akunpelatih.hapus');
-    // Route::get('/ekstrak/{id}/hapus',[EkstraController::class,"hapussiswa"] )->name('ekstrasiswa.hapus');
+    Route::get('/ekstrak/{id}/kick',[EkstraController::class,"kick"] )->name('ekstrasiswa.hapus');
 });
 
 //route siswa
 Route::group(['middleware'=>['auth','CekRole:siswa']],function(){
-    route::get('/ekstrasiswa', [EkstraController::class, "ekstrasiswa"])->name('ekstra.siswa');
-    route::get('/dashboardsiswa',[EkstraController::class, "showekstrasiswa"]);
+    route::resource('/dashboardsiswa', SiswaController::class);
+    route::get('/ekstrasiswa', [SiswaController::class, "index2"]);
+    Route::get('/dashboardsiswa/{id}/hapus',[SiswaController::class,"exit"] )->name('ekstrasiswa.exit');
 });
 
 //route pelatih
+Route::group(['middleware'=>['auth','CekRole:pelatih']],function(){
+    route::resource('/ekstrapelatih', PelatihControllerNew::class);
+    route::get('/pelatihekstra',[PelatihControllerNew::class, "index2"]);
+    Route::get('/ekstrapelatih/{id}',[PelatihControllerNew::class,"show"]);
+    route::get('/ekstrapelatih/{id}/exit',[PelatihControllerNew::class, "exit"])->name('ekstrapelatih.exit');
+
+});

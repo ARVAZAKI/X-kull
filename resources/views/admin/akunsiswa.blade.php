@@ -6,6 +6,11 @@
 
 {{-- <a class= "btn btn-success" href="{{ route('ekstrak.create') }}">Tambah ekstra</a> --}}
 <div class="container">
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
 <div class="row mt-3">
     <div class = "col-lg-8">
         <div class = "card shadow mb-4">

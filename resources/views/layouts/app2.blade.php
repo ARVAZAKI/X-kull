@@ -40,7 +40,7 @@
                 <!-- /.container-fluid -->
 
             </div>
-            @include('layouts.footer')
+            
             </div>
         </div>
 </div>

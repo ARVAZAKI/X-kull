@@ -6,6 +6,7 @@
 
 {{-- <a class= "btn btn-success" href="{{ route('ekstrak.create') }}">Tambah ekstra</a> --}}
 <div class="container">
+
 <div class="row mt-3">
     <div class = "col-lg-12">
         <div class = "card shadow mb-4">
@@ -25,17 +26,16 @@
                     <tbody>
                         @foreach($data as $item)
                         <tr>
+                            <form action="{{ route('dashboardsiswa.store') }}" method="POST">
+                                @csrf
                             <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $item->nama_ekstra}}</td>
-                            {{-- <td>
-                                @foreach($item->pelatih as $pelatih)
-                                - {{ $pelatih->nama }} <br>
-                                @endforeach
-                            </td> --}}
                             <td>
-                                {{-- <a href="ekstrak/{{ $item->id }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a> --}}
-                                <a href="" class="btn btn-success">Join</a>
+                                <input type="hidden" name="siswa_id" value="{{ auth()->user()->siswa_id }}">
+                                <input type="hidden" name="ekstra_id" value="{{ $item->id }}">
+                                 <input type="submit" value="join" class="btn btn-success btn-sm">
                             </td>
+                        </form>
                         </tr>
                         @endforeach
                     </tbody>

@@ -15,17 +15,27 @@ class ekstra extends Model
         protected $table = 'Ekstra';
 
 
-        public function pelatih()
-        {
-            return $this->hasMany(pelatih::class);
-        }
+        // public function pelatih()
+        // {
+        //     return $this->hasMany(pelatih::class, 'ekstra_id', 'id');
+        // }
          public function agenda()
         {
             return $this->hasMany(agenda::class, 'ekstra_id', 'id');
         }
         public function siswa()
         {
-        return $this->belongsToMany(user::class, 'ekstrasiswa', 'ekstra_id', 'users_id');
+        return $this->belongsToMany(siswa::class, 'ekstrasiswa', 'ekstra_id', 'siswa_id');
+        }
+
+        public function ekstrasiswa()
+        {
+            return $this->belongsTo(EkstraSiswa::class, 'ekstra_id', 'id');
+        }
+
+        public function pelatih()
+        {
+            return $this->belongsToMany(Pelatih::class, 'ekstrapelatih', 'ekstra_id', 'pelatih_id');
         }
     }
 

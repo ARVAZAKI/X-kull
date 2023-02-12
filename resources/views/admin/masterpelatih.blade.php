@@ -4,7 +4,11 @@
 
 <link rel="stylesheet" href="css/style.css">
 <div class="container">
-    {{-- <a class= "btn btn-success" href="{{ route('pelatih.create') }}">Tambah Pelatih<a> --}}
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
 <div class="row mt-3">
     <div class = "col-lg-8">
         <div class = "card shadow mb-4">
@@ -57,15 +61,6 @@
                     <div class = "form-group">
                         <label for="nama">nama</label>
                         <input type="text" class="form-control" id="nama" name="nama" value = "{{ old('nama')}} ">
-                    </div>
-                    <div class="form-group">
-                        <label for="ekstra">Pilih Ekstra</label>
-                        <select name="ekstra_id" id="inputGroupSelect01" class="custom-select" required>
-                            <option value="">nama ekstra</option>
-                            @foreach ($ekstra as $ekskul)
-                            <option value="{{$ekskul->id}}">{{$ekskul->nama_ekstra}}</option>
-                            @endforeach
-                        </select>
                     </div>
                     <div class = "form-group">
                         <label for="foto">foto</label>

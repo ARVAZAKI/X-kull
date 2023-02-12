@@ -64,7 +64,7 @@ class PelatihController extends Controller
             'foto' => $foto,
             'ekstra_id' => $request->ekstra_id,
         ]);
-        return redirect('/pelatih');
+        return redirect('/pelatih')->with('status', 'Berhasil menambah pelatih');
     }
 
     /**
@@ -115,6 +115,6 @@ class PelatihController extends Controller
     public function hapus($id)
     {
         $data=Pelatih::find($id)->delete();
-        return redirect('/pelatih');
+        return redirect('/pelatih')->with('status', 'Berhasil menghapus pelatih');
     }
 }

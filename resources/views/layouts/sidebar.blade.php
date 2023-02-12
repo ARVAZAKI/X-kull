@@ -19,6 +19,15 @@
                 <div class="sidebar-brand-text mx-3">X-kull</div>
             </a>
             @endif
+            @if(auth()->user()->role == 'pelatih')
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/ekstrapelatih">
+                <div class="sidebar-brand-icon">
+                    {{-- <i class="fas fa-running"></i> --}}
+                    <img src="logosekolah.png" alt="" width="50" height="50">
+                </div>
+                <div class="sidebar-brand-text mx-3">X-kull</div>
+            </a>
+            @endif
             @if(auth()->user()->role == 'admin')
             <!-- Divider -->
             <li class="nav-item">
@@ -69,11 +78,17 @@
                     <span>Ekstra</span></a>
             </li>
             @endif
-            @if(auth()->user()->role == '')
+            @if(auth()->user()->role == 'pelatih')
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="/ekstrapelatih">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/pelatihekstra">
+                    <i class="fas fa-list"></i>
+                    <span>Ekstra</span></a>
             </li>
             @endif
 

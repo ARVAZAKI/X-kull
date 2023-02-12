@@ -117,7 +117,7 @@ class UserController extends Controller
             'password' => $request->password,
             'role' => $request->role
         ]);
-        return redirect('/akunadmin');
+        return redirect('/akunadmin')->with('status', 'Berhasil menambah akun admin');
     }
     public function createsiswa(Request $request){
         $messages = [
@@ -135,7 +135,7 @@ class UserController extends Controller
             'role' => $request->role,
             'siswa_id' => $request->siswa_id
         ]);
-        return redirect('/akunsiswa');
+        return redirect('/akunsiswa')->with('status', 'Berhasil menambah akun siswa');
     }
     public function createpelatih(Request $request){
         $messages = [
@@ -153,21 +153,21 @@ class UserController extends Controller
             'role' => $request->role,
             'pelatih_id' => $request->pelatih_id
         ]);
-        return redirect('/akunpelatih');
+        return redirect('/akunpelatih')->with('status', 'Berhasil menambah akun pelatih');
     }
     public function hapusadmin($id)
     {
         $data=User::find($id)->delete();
-        return redirect('/akunadmin');
+        return redirect('/akunadmin')->with('status', 'Berhasil menghapus akun admin');
     }
     public function hapussiswa($id)
     {
         $data=User::find($id)->delete();
-        return redirect('/akunsiswa');
+        return redirect('/akunsiswa')->with('status', 'Berhasil menghapus akun siswa');
     }
     public function hapuspelatih($id)
     {
         $data=User::find($id)->delete();
-        return redirect('/akunpelatih');
+        return redirect('/akunpelatih')->with('status', 'Berhasil menghapus akun pelatih');
     }
 }
