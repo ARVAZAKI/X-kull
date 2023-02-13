@@ -5,6 +5,7 @@ use App\Models\Ekstra;
 use App\Models\EkstraPelatih;
 use App\Models\Pelatih;
 use App\Models\Agenda;
+use App\Models\EkstraSiswa;
 use Illuminate\Http\Request;
 
 class PelatihControllerNew extends Controller
@@ -49,6 +50,7 @@ class PelatihControllerNew extends Controller
         return redirect('/ekstrapelatih')->with('status', 'Berhasil join ekstra');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -57,8 +59,9 @@ class PelatihControllerNew extends Controller
      */
     public function show($id)
     {
-        $data = Ekstra::with(['pelatih','agenda','siswa'])->findOrFail($id);
-        return view('pelatih.showekstra',compact('data'));
+        $ekstra = Ekstra::with(['pelatih','agenda','siswa'])->findOrFail($id);
+        $data2 = EkstraSiswa::all();
+        return view('pelatih.showekstra',compact('ekstra','data2'));
     }
 
     /**
@@ -96,6 +99,8 @@ class PelatihControllerNew extends Controller
     }
     public function agenda(Request $request){
         Agenda::create([
+            'tanggal' => $request->tanggal,
+            'agenda' => $request->agenda,
             'ekstra_id' => $request->ekstra_id,
             'pelatih_id' => $request->pelatih_id
         ]);
@@ -105,5 +110,9 @@ class PelatihControllerNew extends Controller
     {
         $data=EkstraPelatih::find($id)->delete();
         return redirect('/ekstrapelatih')->with('status', 'Berhasil exit ekstra');
+    }
+    public function kick($id){
+        $data = EkstraSiswa::find($id)->delete();
+        return redirect()->back()->with('status', 'berhasil mengeluarkan siswa');
     }
 }

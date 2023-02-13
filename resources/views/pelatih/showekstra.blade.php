@@ -8,11 +8,11 @@
     <div class="col-lg-6">
         <div class="card shadow mb-4">
             <div class="card-body text-center">
-                <img src="{{ asset('./template/img/' .$data->foto) }}" width="250" class="img-thumbnail">
+                <img src="{{ asset('./template/img/' .$ekstra->foto) }}" width="250" class="img-thumbnail">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-center">{{ $data->nama_ekstra }}</li>
+                    <li class="list-group-item text-center">{{ $ekstra->nama_ekstra }}</li>
                     <p class = text-left >Pelatih :</p>
-                    @foreach ($data->pelatih as $item)
+                    @foreach ($ekstra->pelatih as $item)
                     <li class="list-unstyled text-left">-{{ $item->nama }}</li>
                     @endforeach
                 </ul>
@@ -32,15 +32,19 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Jenis kelamin</th>
                         <th scope="col">Kelas</th>
+                        <th scope="col">Opsi</th>
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach($data->siswa as $siswa)
+                        @foreach($ekstra->siswa as $siswa)
                       <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $siswa->nama }}</td>
                         <td>{{ $siswa->jk }}</td>
                         <td>{{ $siswa->kelas }}</td>
+                        <td>
+                            <a href="{{ route('siswa.kick',$data->id) }}" class="btn btn-danger btn-sm">keluarkan</a>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -54,7 +58,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-bars"></i> Jadwal Ekstra</h6>
             </div>
             <div class="card-body">
-            <p>{{ $data->jadwal }}</p>
+            <p>{{ $ekstra->jadwal }}</p>
             </div>
         </div>
     </div>
@@ -64,7 +68,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-check-square"></i> Agenda</h6>
             </div>
             <div class="card-body">
-            @foreach($data->agenda as $ag)
+            @foreach($ekstra->agenda as $ag)
             <h6>tanggal : {{ $ag->tanggal }}</h6>
             <h6>agenda : {{ $ag->agenda }}</h6>
             @endforeach

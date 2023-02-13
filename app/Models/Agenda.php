@@ -10,7 +10,7 @@ class Agenda extends Model
     use HasFactory;
     protected $fillable = [
         'tanggal',
-        'agenda ',
+        'agenda',
         'ekstra_id',
         'pelatih_id'
     ];

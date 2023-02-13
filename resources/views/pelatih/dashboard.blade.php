@@ -74,17 +74,20 @@ aria-hidden="true">
             </button>
         </div>
         <div class="modal-body">
-            <form action="">
+            <form action="{{ route('ekstrapelatih.agenda') }}" method="POST">
+                @csrf
                 <label for="tanggal">tanggal</label>
                 <input type="date" name="tanggal" class="form-control">
                 <label for="agenda">agenda</label>
                 <input type="text" class="form-control" name="agenda">
                 <label for="ekstra_id">ekstra</label>
                 <select name="ekstra_id" class="form-control">
-                    <option value=""></option>
+                    <option value="">Pilih ekstra</option>
+                    @foreach($data as $ekstra)
+                    <option value="{{ $ekstra->ekstra->id }}">{{ $ekstra->ekstra->nama_ekstra }}</option>
+                    @endforeach
                 </select>
                 <input type="hidden" name="pelatih_id" value="{{ auth()->user()->pelatih_id }}">
-            </form>
         </div>
         <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
