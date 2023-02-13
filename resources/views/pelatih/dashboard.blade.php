@@ -9,8 +9,10 @@
         {{ session('status') }}
     </div>
 @endif
-
-<div class="row mt-3">
+<a class="btn btn-success" href="" data-toggle="modal" data-target="#modalagenda">
+    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+    +agenda
+</a><div class="row mt-3">
     <div class = "col-lg-12">
         <div class = "card shadow mb-4">
             <div class = "card-header py-3 bg-cstm">
@@ -32,11 +34,8 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->ekstra->nama_ekstra }}</td>
                             <td>
-                                <a href="{{ route('ekstrapelatih.show',$item->id) }}" class="btn btn-primary btn-sm">Lihat</a>
+                                <a href="{{ route('ekstrapelatih.show',$item->ekstra->id) }}" class="btn btn-primary btn-sm">Lihat</a>
                                 <a href="{{ route('ekstrapelatih.exit',$item->id) }}" class="btn btn-danger btn-sm">Exit</a>
-                                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#agendamodal">
-                                +agenda
-                                </button>
                             </td>
                         </tr>
                         @endforeach
@@ -64,4 +63,36 @@
     </div>
   </div>
 @endsection
+<div class="modal fade" id="modalagenda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tambahnkan Agenda</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <label for="tanggal">tanggal</label>
+                <input type="date" name="tanggal" class="form-control">
+                <label for="agenda">agenda</label>
+                <input type="text" class="form-control" name="agenda">
+                <label for="ekstra_id">ekstra</label>
+                <select name="ekstra_id" class="form-control">
+                    <option value=""></option>
+                </select>
+                <input type="hidden" name="pelatih_id" value="{{ auth()->user()->pelatih_id }}">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success" type="submit">Tambah</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
 

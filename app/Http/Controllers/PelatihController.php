@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Pelatih;
 use App\Models\Ekstra;
+use App\Models\EkstraPelatih;
 use Illuminate\Http\Request;
 
 class PelatihController extends Controller
@@ -52,8 +53,7 @@ class PelatihController extends Controller
         ];
         $this->validate($request,[
             'nama' => 'required',
-            'foto' => 'required',
-            'ekstra_id' =>'required'
+            'foto' => 'required'
         ],$messages);
         $file = $request->file('foto');
         $foto = time() . '_' . $file->getClientOriginalName();
@@ -61,8 +61,7 @@ class PelatihController extends Controller
         $file->move ($tujuan_upload,$foto);
         Pelatih::create([
             'nama' => $request->nama,
-            'foto' => $foto,
-            'ekstra_id' => $request->ekstra_id,
+            'foto' => $foto
         ]);
         return redirect('/pelatih')->with('status', 'Berhasil menambah pelatih');
     }
@@ -75,7 +74,7 @@ class PelatihController extends Controller
      */
     public function show($id)
     {
-        $data = Pelatih::with(['ekstra'])->findOrFail($id);
+        $data = Pelatih::with(['ekstrapelatih'])->findOrFail($id);
         return view('admin.showpelatih', compact('data'));
         }
 

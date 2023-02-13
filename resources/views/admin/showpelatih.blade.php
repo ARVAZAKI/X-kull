@@ -3,7 +3,7 @@
 @section('content-title',)
 @section('content')
 
-<div class="container">
+<div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-lg-5">
             <div class="card shadow">
@@ -12,9 +12,7 @@
                 </div>
                 <img src="{{ asset('./template/img/' .$data->foto) }}" width="200" class="img-thumbnail mx-auto rounded-circle">
                 <ul class="mt-4">
-                    <li>Nama : {{ $data->nama }} </li>
-                    <li>Ekstra : {{ $data->ekstra->nama_ekstra }}</li>
-                </ul>
+                    <li>Nama : {{ $data->nama }} </li>                </ul>
 
             </div>
         </div>

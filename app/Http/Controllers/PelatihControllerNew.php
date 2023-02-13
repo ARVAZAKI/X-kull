@@ -46,7 +46,7 @@ class PelatihControllerNew extends Controller
             'pelatih_id' => $request->pelatih_id,
             'ekstra_id' => $request->ekstra_id
         ]);
-        return redirect('/ekstrapelatih')->with('status', 'Berhasil j');
+        return redirect('/ekstrapelatih')->with('status', 'Berhasil join ekstra');
     }
 
     /**

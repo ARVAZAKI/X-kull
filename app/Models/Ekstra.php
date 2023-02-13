@@ -37,5 +37,10 @@ class ekstra extends Model
         {
             return $this->belongsToMany(Pelatih::class, 'ekstrapelatih', 'ekstra_id', 'pelatih_id');
         }
+
+        public function ekstrapelatih()
+        {
+            return $this->hasOne(ekstrapelatih::class, 'ekstra_id', 'id');
+        }
     }
 

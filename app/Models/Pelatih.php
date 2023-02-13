@@ -10,8 +10,7 @@ class pelatih extends Model
     use HasFactory;
     protected $fillable = [
         'nama',
-        'foto',
-        'ekstra_id'
+        'foto'
     ];
     protected $table = 'pelatih';
 
@@ -32,6 +31,11 @@ class pelatih extends Model
     public function ekstra()
     {
         return $this->belongsToMany(Ekstra::class, 'ekstrapelatih', 'pelatih_id', 'ekstra_id');
+    }
+
+    public function ekstrapelatih()
+    {
+        return $this->belongsTo(EkstraPelatih::class, 'pelatih_id', 'id');
     }
 
 }
