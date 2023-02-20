@@ -17,7 +17,8 @@ class PelatihControllerNew extends Controller
      */
     public function index()
     {
-        $data = EkstraPelatih::with('ekstra')->get();
+
+        $data = EkstraPelatih::paginate(10);
         return view('pelatih.dashboard', compact('data'));
     }
     public function index2(){
@@ -59,9 +60,9 @@ class PelatihControllerNew extends Controller
      */
     public function show($id)
     {
-        $ekstra = Ekstra::with(['pelatih','agenda','siswa'])->findOrFail($id);
-        $data2 = EkstraSiswa::all();
-        return view('pelatih.showekstra',compact('ekstra','data2'));
+        $ekstra = Ekstra::with('pelatih','agenda')->findOrFail($id);
+        $ekstrasiswa = EkstraSiswa::all();
+        return view('pelatih.showekstra',compact('ekstra','ekstrasiswa'));
     }
 
     /**
@@ -84,7 +85,7 @@ class PelatihControllerNew extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -95,7 +96,7 @@ class PelatihControllerNew extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
     public function agenda(Request $request){
         Agenda::create([
@@ -104,7 +105,7 @@ class PelatihControllerNew extends Controller
             'ekstra_id' => $request->ekstra_id,
             'pelatih_id' => $request->pelatih_id
         ]);
-        return redirect('/ekstrapelatih')->with('status', 'Berhasil menambah agenda');
+        return redirect()->back()->with('status', 'Berhasil menambah agenda');
     }
     public function exit($id)
     {
@@ -114,5 +115,27 @@ class PelatihControllerNew extends Controller
     public function kick($id){
         $data = EkstraSiswa::find($id)->delete();
         return redirect()->back()->with('status', 'berhasil mengeluarkan siswa');
+    }
+    public function hapusAgenda($id){
+        $data=Agenda::find($id)->delete();
+        return redirect()->back()->with('status','berhasil menghapus agenda');
+    }
+    public function editAgenda(Request $request, $id){
+        $messages = [
+            'required' => ':attribute harus diisi',
+        ];
+        $this->validate($request,[
+            'tanggal' => 'required',
+            'agenda' => 'required',
+            'pelatih_id' =>'required',
+            'ekstra_id' =>'required'
+        ],$messages);
+        $item = Agenda::find($id);
+        $item->tanggal = $request->tanggal;
+        $item->agenda = $request->agenda;
+        $item->pelatih_id = $request->pelatih_id;
+        $item->ekstra_id = $request->ekstra_id;
+        $item->update();
+        return redirect()->back()->with('status','berhasil mengubah agenda');
     }
 }

@@ -9,10 +9,7 @@
         {{ session('status') }}
     </div>
 @endif
-<a class="btn btn-success" href="" data-toggle="modal" data-target="#modalagenda">
-    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-    +agenda
-</a><div class="row mt-3">
+<div class="row mt-3">
     <div class = "col-lg-12">
         <div class = "card shadow mb-4">
             <div class = "card-header py-3 bg-cstm">

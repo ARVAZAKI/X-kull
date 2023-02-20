@@ -62,6 +62,8 @@ Route::group(['middleware'=>['auth','CekRole:pelatih']],function(){
     route::get('/pelatihekstra',[PelatihControllerNew::class, "index2"]);
     Route::get('/ekstrapelatih/{id}',[PelatihControllerNew::class,"show"]);
     route::get('/ekstrapelatih/{id}/exit',[PelatihControllerNew::class, "exit"])->name('ekstrapelatih.exit');
-    route::get('/ekstrasiswa/{id}/kick',[PelatihControllerNew::class, "kick"])->name('siswa.kick');
+    route::get('/ekstrasiswah/{id}/kick',[PelatihControllerNew::class, "kick"])->name('siswa.kick');
     route::post('/ekstrapelatihh',[PelatihControllerNew::class, "agenda"])->name('ekstrapelatih.agenda');
+    route::get('/ekstrapelatihh/{id}/hapus',[PelatihControllerNew::class, "hapusAgenda"])->name('ekstrapelatih.hapusagenda');
+    route::post('/ekstrapelatihh/{id}/edit',[PelatihControllerNew::class, "editAgenda"])->name('ekstrapelatih.editagenda');
 });
