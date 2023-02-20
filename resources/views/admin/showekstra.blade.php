@@ -11,6 +11,7 @@
                 <img src="{{ asset('./template/img/' .$data->foto) }}" width="250" class="img-thumbnail">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-center">{{ $data->nama_ekstra }}</li>
+                    <li class="list-unstyled text-center">{{ $data->jadwal }}</li>
                     <p class = text-left >Pelatih :</p>
                     @foreach ($data->pelatih as $item)
                     <li class="list-unstyled text-left">-{{ $item->nama }}</li>
@@ -48,26 +49,28 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-bars"></i> Jadwal Ekstra</h6>
-            </div>
-            <div class="card-body">
-            <p>{{ $data->jadwal }}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
+    <div class="col-lg-6">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-check-square"></i> Agenda</h6>
             </div>
             <div class="card-body">
-            @foreach($data->agenda as $ag)
-            <h6>tanggal : {{ $ag->tanggal }}</h6>
-            <h6>agenda : {{ $ag->agenda }}</h6>
-            @endforeach
+           <table class="table table-responsive-lg">
+            <thead>
+                <th>no</th>
+                <th>tanggal</th>
+                <th>agenda</th>
+            </thead>
+            <tbody>
+                @foreach($data->agenda as $ag)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $ag->tanggal }}</td>
+                    <td>{{ $ag->Agenda }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+           </table>
             </div>
         </div>
     </div>
