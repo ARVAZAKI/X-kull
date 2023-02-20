@@ -46,7 +46,7 @@
                     @foreach($data->agenda as $ag)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $$ag->tanggal }}</td>
+                        <td>{{ $ag->tanggal }}</td>
                         <td>{{ $ag->agenda }}</td>
                     </tr>
                     @endforeach

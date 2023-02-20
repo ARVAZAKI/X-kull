@@ -66,7 +66,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $ag->tanggal }}</td>
-                    <td>{{ $ag->Agenda }}</td>
+                    <td>{{ $ag->agenda }}</td>
                 </tr>
                 @endforeach
             </tbody>
