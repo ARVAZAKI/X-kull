@@ -8,6 +8,7 @@ use App\Models\ekstrasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use  Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 
 class SiswaController extends Controller
 {
@@ -19,7 +20,7 @@ class SiswaController extends Controller
     public function index()
     {
         $ekstrasiswa = EkstraSiswa::all();
-        $data = Ekstrasiswa::with('ekstra')->get();
+        $data = Ekstrasiswa::where('siswa_id',Auth::user()->id)->get();
          return view('siswa.dashboard',compact('data','ekstrasiswa'));
     }
 
